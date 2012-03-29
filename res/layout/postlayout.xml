@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background ="@drawable/blackandwhitelighthouse" >
+
+    <TextView 
+        android:id="@+id/upperbuffer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="200dp"
+    android:orientation="horizontal" >/
+    
+    <TextView 
+        android:id="@+id/leftbuffer"
+        android:layout_width="20dp"
+        android:layout_height="200dp" />
+    <TextView
+        android:id="@+id/posted_message"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:maxLines="10"
+        android:text="texttest"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <TextView 
+        android:id="@+id/rightbuffer"
+        android:layout_width="20dp"
+        android:layout_height="200dp" />
+    </LinearLayout>
+    
+    <TextView 
+        android:id="@+id/lowerbuffer"
+        android:layout_width="match_parent"
+        android:layout_height="130dp" />
+
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+    
+    <EditText
+        android:id="@+id/message_text"
+        android:layout_width="250dp"
+        android:layout_height="91dp" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="91dp"
+        android:text="Submit" />
+    
+    </LinearLayout>
+        
+
+</LinearLayout>

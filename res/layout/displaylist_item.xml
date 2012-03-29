@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- Name Label -->
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        
+
+        
+        
+        <!-- Descriptio"res/layout/displaylist_item.xml"n Label -->
+		
+		
+		
+		<TextView
+            android:id="@+id/nickname_label"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:textColor="#00ff00"
+            android:textSize="24dp"
+            android:textStyle="bold"/>
+
+		<TextView
+            android:id="@+id/timestamp_label"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:textColor="#0000f0"
+            android:textSize="12dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/messageText_label"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:textColor="#acacac"
+        android:textSize="16dp" />
+
+    <!-- Price Label -->
+
+</LinearLayout>

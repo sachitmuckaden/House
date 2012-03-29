@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<ScrollView android:layout_width="fill_parent" android:id="@+id/signupscroll"
+		android:layout_height="fill_parent" 
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true">
+		<RelativeLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="fill_parent">
+			<ImageView android:src="@drawable/ic_launcher"
+				android:layout_alignParentTop="true"
+				android:layout_centerHorizontal="true" android:layout_height="120sp"
+				android:layout_width="120sp" android:layout_marginTop="8sp"
+				android:id="@+id/signupimage">
+			</ImageView>
+			<EditText android:singleLine="true" android:layout_width="200sp"
+				android:text="@string/nickname" android:id="@+id/signupname"
+				android:gravity="center_vertical"
+				android:layout_height="35sp" android:textSize="15sp"
+				android:layout_below="@+id/signupimage" android:layout_marginTop="8sp"
+				android:layout_centerHorizontal="true">
+			</EditText>
+			<EditText android:singleLine="true" android:layout_width="200sp"
+				android:text="@string/username" android:id="@+id/signupusername"
+				android:gravity="center_vertical"
+				android:layout_height="35sp" android:textSize="15sp"
+				android:layout_below="@+id/signupname" android:layout_marginTop="8sp"
+				android:layout_centerHorizontal="true">
+			</EditText>
+			<EditText android:singleLine="true" android:layout_width="200sp"
+				android:text="@string/password" android:id="@+id/signuppassword"
+				android:gravity="center_vertical"
+				android:layout_height="35sp" android:textSize="15sp"
+				android:layout_below="@+id/signupusername" android:layout_marginTop="8sp"
+				android:layout_centerHorizontal="true">
+			</EditText>
+			<EditText android:singleLine="true" android:layout_width="200sp"
+				android:text="@string/confirmpassword" 
+				android:id="@+id/signupconfirmpassword"
+				android:gravity="center_vertical"
+				android:layout_height="35sp" android:textSize="15sp"
+				android:layout_below="@+id/signuppassword"
+				android:layout_marginTop="8sp" 
+				android:layout_centerHorizontal="true">
+			</EditText>
+			<Button android:id="@+id/signuppagebutton" 
+			android:layout_width="195sp" android:textSize="15sp" 
+			android:text="@string/createaccount" 
+			android:layout_height="35sp" 
+			android:layout_below="@+id/signupconfirmpassword"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="12sp" 
+			android:onClick="createaccount"
+			android:textStyle="bold">
+
+			</Button>
+		</RelativeLayout>
+	</ScrollView>
+
+</RelativeLayout>

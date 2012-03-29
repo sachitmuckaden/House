@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, LoginActivity!</string>
+    <string name="app_name">LightHouse</string>
+    <string name="login">Login</string>
+    <string name="username">App Username</string>
+    <string name="password">Password</string>
+    <string name="signup">Sign Up</string>
+    <string name="nickname">Nick Name</string>
+    <string name="Appusername"> Username</string>
+    <string name="Accountpassword">Password</string>
+    <string name="confirmpassword">Confirm Password</string>
+    <string name="createaccount">Create Account</string>
+    <string name="retry">Retry</string>
+    <string name="haventsignedup">Haven\'t signed up yet?</string>
+
+</resources>
