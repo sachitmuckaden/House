@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -28,6 +29,8 @@ import com.MAS.utils.HTTPUtil;
 
 public class PostMessageActivity extends Activity implements OnClickListener{
     /** Called when the activity is first created. */
+	
+	public final int ACTION_TAKE_VIDEO = 1;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +96,21 @@ public class PostMessageActivity extends Activity implements OnClickListener{
     	Log.d(null, response.toString());
     	
     	
+    	
+    }
+    public void startVideo(View view)
+    {
+    	Intent i = new Intent();
+    	i.setAction(MediaStore.ACTION_VIDEO_CAPTURE);
+    	startActivityForResult(i, ACTION_TAKE_VIDEO);
+    }
+    
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+    	if(requestCode == ACTION_TAKE_VIDEO)
+    	{
+    		Log.d("Video received", "Sending video");
+    	}
     	
     }
 }

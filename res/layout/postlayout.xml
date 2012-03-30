@@ -37,7 +37,14 @@
     <TextView 
         android:id="@+id/lowerbuffer"
         android:layout_width="match_parent"
-        android:layout_height="130dp" />
+        android:layout_height="100dp" />
+    
+    <Button 
+        android:id = "@+id/video_button"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Share Video" 
+        android:onClick="startVideo" />      "
 
     
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

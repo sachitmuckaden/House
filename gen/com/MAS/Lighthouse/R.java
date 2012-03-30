@@ -16,6 +16,7 @@ public final class R {
     public static final class drawable {
         public static final int blackandwhitelighthouse=0x7f020000;
         public static final int ic_launcher=0x7f020001;
+        public static final int logo=0x7f020002;
     }
     public static final class id {
         public static final int haventsignedupyet=0x7f060008;
@@ -28,23 +29,24 @@ public final class R {
         public static final int loginpageusername=0x7f060004;
         public static final int lowerbuffer=0x7f060011;
         public static final int messageText_label=0x7f060002;
-        public static final int message_text=0x7f060012;
+        public static final int message_text=0x7f060013;
         public static final int nickname_label=0x7f060000;
         public static final int posted_message=0x7f06000f;
         public static final int retrieve_alarms_button=0x7f06000a;
         public static final int retrieve_location_button=0x7f06000b;
         public static final int retrieve_settings_button=0x7f06000c;
         public static final int rightbuffer=0x7f060010;
-        public static final int signupconfirmpassword=0x7f060019;
-        public static final int signupimage=0x7f060015;
-        public static final int signupname=0x7f060016;
-        public static final int signuppagebutton=0x7f06001a;
-        public static final int signuppassword=0x7f060018;
-        public static final int signupscroll=0x7f060014;
-        public static final int signupusername=0x7f060017;
-        public static final int submit_button=0x7f060013;
+        public static final int signupconfirmpassword=0x7f06001a;
+        public static final int signupimage=0x7f060016;
+        public static final int signupname=0x7f060017;
+        public static final int signuppagebutton=0x7f06001b;
+        public static final int signuppassword=0x7f060019;
+        public static final int signupscroll=0x7f060015;
+        public static final int signupusername=0x7f060018;
+        public static final int submit_button=0x7f060014;
         public static final int timestamp_label=0x7f060001;
         public static final int upperbuffer=0x7f06000d;
+        public static final int video_button=0x7f060012;
     }
     public static final class layout {
         public static final int displaylist_item=0x7f030000;
