@@ -15,6 +15,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -129,7 +130,7 @@ public class YouTubeLoginActivity extends Activity{
 	private String sendYouTubeRequest(String AuthToken)
 	{
 		YouTubeHelper youtube = new YouTubeHelper();
-		List<NameValuePair> params = youtube.createMessage(this.getApplicationContext(), AuthToken, videofilename);
+		HttpParams params = youtube.createMessage(this.getApplicationContext(), AuthToken, videofilename);
 		HTTPUtil http = new HTTPUtil();
 		JSONObject response = null;
 		try {

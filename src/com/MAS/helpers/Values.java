@@ -13,7 +13,7 @@ public class Values
 	public static final String SIGNUP_URL = "signup";
 	public static final String POSTMESSAGE_URL = "write";
 	public static final String GETMESSAGES_URL = "retrieve";
-	public static final String YOUTUBE_URL = "http://uploads.gdata.youtube.com/resumable/feeds/mobile/users/default/uploads";
+	public static final String YOUTUBE_URL = "https://uploads.gdata.youtube.com/resumable/feeds/api/users/default/uploads?v=2";
 	public static final String YOUTUBE_AUTH_URL = "https://www.google.com/accounts/ClientLogin";
 	public static final String YOUTUBE_TOKEN = "";
 	public static final String YOUTUBE_DEVELOPER_CODE = "AI39si4MnD3wW3njOcyXHgkJcZoVRlXhTpAc7CA9bPMwsyrpKSuuLlUnsJ0jwmqlHAQFmpEK5aDWXaiXXSKgH2d__rBjiwqgPgAI39si4MnD3wW3njOcyXHgkJcZoVRlXhTpAc7CA9bPMwsyrpKSuuLlUnsJ0jwmqlHAQFmpEK5aDWXaiXXSKgH2d__rBjiwqgPg";

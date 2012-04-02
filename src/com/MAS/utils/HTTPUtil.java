@@ -14,6 +14,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.HttpParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -65,7 +66,7 @@ public class HTTPUtil{
 	            DefaultHttpClient httpClient = new DefaultHttpClient();
 	            HttpPost httpPost = new HttpPost(url);
 	            httpPost.setEntity((HttpEntity) new UrlEncodedFormEntity(params));
-	 
+	            
 	            HttpResponse httpResponse = httpClient.execute(httpPost);
 	            HttpEntity httpEntity = httpResponse.getEntity();
 	            is = httpEntity.getContent();
@@ -128,5 +129,69 @@ public class HTTPUtil{
 			}
 			return myjson;
 		}
+		
+		public JSONObject Execute(HttpParams params, String method) throws ClientProtocolException, IOException
+		{
+			
+				String url = Values.YOUTUBE_URL;
+				String Location = "";
+			    try {
+		            // defaultHttpClient
+		            DefaultHttpClient httpClient = new DefaultHttpClient();
+		            HttpPost httpPost = new HttpPost(url);
+		            httpPost.setParams(params);
+		            
+		            HttpResponse httpResponse = httpClient.execute(httpPost);
+		            HttpParams httpParams = httpResponse.getParams();
+		            Location = (String) httpParams.getParameter("Location");
+		            	 
+		        } catch (UnsupportedEncodingException e) {
+		            e.printStackTrace();
+		        } catch (ClientProtocolException e) {
+		            e.printStackTrace();
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }
+			    
+			    /*try {
+		            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
+		            StringBuilder sb = new StringBuilder();
+		            String line = null;
+		            while ((line = reader.readLine()) != null) {
+		                sb.append(line + "\n");
+		            }
+		            is.close();
+		            json = sb.toString();
+		            Log.e("JSON", json);
+		        } catch (Exception e) {
+		            Log.e("Buffer Error", "Error converting result " + e.toString());
+		        }
+			    
+		        // try parse the string to a JSON object
+		        try {
+		            if(method.equals(Values.YOUTUBE_AUTH))
+		            {
+		            	jObj = parseString(json);
+		            }
+		            else
+		            {
+		            	jObj = new JSONObject(json);
+		            }
+		        } catch (JSONException e) {
+		            Log.e("JSON Parser", "Error parsing data " + e.toString());
+		        }*/
+		 
+		        // return JSON String
+		        try {
+					jObj.put("Location", Location);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			    return jObj;
+		 
+		   }
 	
+		         
+		
 }
