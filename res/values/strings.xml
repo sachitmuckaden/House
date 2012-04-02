@@ -14,5 +14,8 @@
     <string name="createaccount">Create Account</string>
     <string name="retry">Retry</string>
     <string name="haventsignedup">Haven\'t signed up yet?</string>
+    <string name = "youtubeusername">YouTube Username</string>
+    <string name = "youtubepassword">YouTube Password</string>
+    <string name= "youtubesubmit">Submit</string>
 
 </resources>

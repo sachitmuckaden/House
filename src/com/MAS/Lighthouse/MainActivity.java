@@ -1,6 +1,8 @@
 package com.MAS.Lighthouse;
 
 
+import com.MAS.helpers.Values;
+
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Context;
@@ -31,6 +33,7 @@ public class MainActivity extends Activity{
 	
 	public void postActivity(View view){
 		Intent i=new Intent(this , PostMessageActivity.class);
+		i.putExtra(Values.COMING_FROM, Values.COMING_FROM_MAIN);
 		startActivity(i);
 	}
 	

@@ -48,6 +48,14 @@ public class HTTPUtil{
 			{
 				url = url + Values.GETMESSAGES_URL;
 			}
+			else if(method.equals(Values.YOUTUBE_AUTH))
+			{
+				url = Values.YOUTUBE_AUTH_URL;
+			}
+			else if(method.equals(Values.YOUTUBE_URL))
+			{
+				url = Values.YOUTUBE_URL;
+			}
 			else
 			{
 				url = url + "write";
@@ -69,6 +77,7 @@ public class HTTPUtil{
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
+		    
 		    try {
 	            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
 	            StringBuilder sb = new StringBuilder();
@@ -82,10 +91,17 @@ public class HTTPUtil{
 	        } catch (Exception e) {
 	            Log.e("Buffer Error", "Error converting result " + e.toString());
 	        }
-	 
+		    
 	        // try parse the string to a JSON object
 	        try {
-	            jObj = new JSONObject(json);
+	            if(method.equals(Values.YOUTUBE_AUTH))
+	            {
+	            	jObj = parseString(json);
+	            }
+	            else
+	            {
+	            	jObj = new JSONObject(json);
+	            }
 	        } catch (JSONException e) {
 	            Log.e("JSON Parser", "Error parsing data " + e.toString());
 	        }
@@ -94,4 +110,23 @@ public class HTTPUtil{
 	        return jObj;
 	 
 	   }
+		
+		public JSONObject parseString(String json)
+		{
+			JSONObject myjson = new JSONObject();
+			int index = json.indexOf("Auth");
+			StringBuilder sb = new StringBuilder();
+			for(int i = index+5; i<json.length()&&json.charAt(i)!='\n';i++)
+			{
+				sb.append(json.charAt(i));
+			}
+			try {
+				myjson.put("AUTH", sb.toString());
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return myjson;
+		}
+	
 }

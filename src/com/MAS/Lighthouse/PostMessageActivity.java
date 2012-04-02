@@ -1,7 +1,12 @@
 package com.MAS.Lighthouse;
 
+import java.io.File;
+
 import java.io.IOException;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -11,7 +16,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.content.Context;
 import android.content.Intent;
@@ -31,12 +38,22 @@ public class PostMessageActivity extends Activity implements OnClickListener{
     /** Called when the activity is first created. */
 	
 	public final int ACTION_TAKE_VIDEO = 1;
+	public final int ACTION_YOUTUBE_LOGIN = 2;
+	File f= null;
+	String filename= null;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.postlayout);
         
-        
+        Intent sender=getIntent();
+        String extraData=sender.getExtras().getString(Values.COMING_FROM);
+        if(extraData.equals(Values.COMING_FROM_YOUTUBE))
+        {
+        	String editText = sender.getExtras().getString("message");
+        	EditText textbox = (EditText)findViewById(R.id.message_text);
+        	textbox.setText(editText, TextView.BufferType.NORMAL);
+        }
         //Set up click listeners for all buttons
         View submitButton = findViewById(R.id.submit_button);
         submitButton.setOnClickListener(this);
@@ -102,15 +119,53 @@ public class PostMessageActivity extends Activity implements OnClickListener{
     {
     	Intent i = new Intent();
     	i.setAction(MediaStore.ACTION_VIDEO_CAPTURE);
+    	
+		try {
+			f = createVideoFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			Log.e("Could not create file","video file");
+			e.printStackTrace();
+		}
+    	i.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
     	startActivityForResult(i, ACTION_TAKE_VIDEO);
     }
     
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
+    	
     	if(requestCode == ACTION_TAKE_VIDEO)
     	{
     		Log.d("Video received", "Sending video");
     	}
     	
+    	Intent i = new Intent(this, YouTubeLoginActivity.class);
+    	i.putExtra("videofile", f);
+    	i.putExtra("filename",filename);
+    	startActivity(i);
+    	
+    	
     }
+    
+       
+    public File createVideoFile() throws IOException {
+        // Create an image file name
+        String timeStamp = 
+            new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String videoFileName = Values.MP4_FILE_PREFIX + timeStamp + "_";
+        File image = File.createTempFile(
+            videoFileName, 
+            Values.MP4_FILE_SUFFIX, 
+            Environment.getExternalStoragePublicDirectory(
+    		        Environment.DIRECTORY_DCIM
+    		       )
+            
+        );
+        String mCurrentVideoPath = image.getAbsolutePath();
+        Log.d("Video path",mCurrentVideoPath);
+        filename = image.getName();
+       
+        return image;
+    }
+    
 }
