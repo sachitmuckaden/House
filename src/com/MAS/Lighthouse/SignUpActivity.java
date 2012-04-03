@@ -50,13 +50,13 @@ public class SignUpActivity extends Activity implements View.OnTouchListener{
 		signupname = (EditText) findViewById(R.id.signupname);
 		signupusername = (EditText) findViewById(R.id.signupusername);
 		signuppassword = (EditText) findViewById(R.id.signuppassword);
-		signupconfirmpassword = (EditText) findViewById(R.id.signupconfirmpassword);
+		//signupconfirmpassword = (EditText) findViewById(R.id.signupconfirmpassword);
 		signuppagebutton = (Button) findViewById(R.id.signuppagebutton);
 
 		signupname.setOnTouchListener(this);
 		signupusername.setOnTouchListener(this);
 		signuppassword.setOnTouchListener(this);
-		signupconfirmpassword.setOnTouchListener(this);
+		//signupconfirmpassword.setOnTouchListener(this);
 }
 
 	@Override
@@ -67,13 +67,13 @@ public class SignUpActivity extends Activity implements View.OnTouchListener{
 		signupname = (EditText) findViewById(R.id.signupname);
 		signupusername = (EditText) findViewById(R.id.signupusername);
 		signuppassword = (EditText) findViewById(R.id.signuppassword);
-		signupconfirmpassword = (EditText) findViewById(R.id.signupconfirmpassword);
+		//signupconfirmpassword = (EditText) findViewById(R.id.signupconfirmpassword);
 		signuppagebutton = (Button) findViewById(R.id.signuppagebutton);
 
 		signupname.setOnTouchListener(this);
 		signupusername.setOnTouchListener(this);
 		signuppassword.setOnTouchListener(this);
-		signupconfirmpassword.setOnTouchListener(this);
+		//signupconfirmpassword.setOnTouchListener(this);
 	}
 
 	public void createaccount(View v) {
@@ -150,12 +150,7 @@ public class SignUpActivity extends Activity implements View.OnTouchListener{
 			focusEditText.setText("");
 			return false;
 		}
-		if (contents.equals("Confirm Password")) {
-			focusEditText.setText("");
-			focusEditText.setInputType(InputType.TYPE_CLASS_TEXT
-					| InputType.TYPE_TEXT_VARIATION_PASSWORD);
-			return false;
-		}
+		
 		return false;
 	}
 

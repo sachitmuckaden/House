@@ -1,62 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	<ScrollView android:layout_width="fill_parent" android:id="@+id/signupscroll"
-		android:layout_height="fill_parent" 
-		android:layout_alignParentTop="true"
-		android:layout_centerHorizontal="true">
-		<RelativeLayout android:orientation="vertical"
-			android:layout_width="fill_parent" android:layout_height="fill_parent">
-			<ImageView android:src="@drawable/ic_launcher"
-				android:layout_alignParentTop="true"
-				android:layout_centerHorizontal="true" android:layout_height="120sp"
-				android:layout_width="120sp" android:layout_marginTop="8sp"
-				android:id="@+id/signupimage">
-			</ImageView>
-			<EditText android:singleLine="true" android:layout_width="200sp"
-				android:text="@string/nickname" android:id="@+id/signupname"
-				android:gravity="center_vertical"
-				android:layout_height="35sp" android:textSize="15sp"
-				android:layout_below="@+id/signupimage" android:layout_marginTop="8sp"
-				android:layout_centerHorizontal="true">
-			</EditText>
-			<EditText android:singleLine="true" android:layout_width="200sp"
-				android:text="@string/username" android:id="@+id/signupusername"
-				android:gravity="center_vertical"
-				android:layout_height="35sp" android:textSize="15sp"
-				android:layout_below="@+id/signupname" android:layout_marginTop="8sp"
-				android:layout_centerHorizontal="true">
-			</EditText>
-			<EditText android:singleLine="true" android:layout_width="200sp"
-				android:text="@string/password" android:id="@+id/signuppassword"
-				android:gravity="center_vertical"
-				android:layout_height="35sp" android:textSize="15sp"
-				android:layout_below="@+id/signupusername" android:layout_marginTop="8sp"
-				android:layout_centerHorizontal="true">
-			</EditText>
-			<EditText android:singleLine="true" android:layout_width="200sp"
-				android:text="@string/confirmpassword" 
-				android:id="@+id/signupconfirmpassword"
-				android:gravity="center_vertical"
-				android:layout_height="35sp" android:textSize="15sp"
-				android:layout_below="@+id/signuppassword"
-				android:layout_marginTop="8sp" 
-				android:layout_centerHorizontal="true">
-			</EditText>
-			<Button android:id="@+id/signuppagebutton" 
-			android:layout_width="195sp" android:textSize="15sp" 
-			android:text="@string/createaccount" 
-			android:layout_height="35sp" 
-			android:layout_below="@+id/signupconfirmpassword"
-			android:layout_centerHorizontal="true"
-			android:layout_marginTop="12sp" 
-			android:onClick="createaccount"
-			android:textStyle="bold">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:fillViewport="true" >
 
-			</Button>
-		</RelativeLayout>
-	</ScrollView>
+  <RelativeLayout
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content" android:background="@drawable/repeat_bg">
+ 
+          <!--  Header  Starts-->
 
-</RelativeLayout>
+          <LinearLayout
+              android:id="@+id/header"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="@layout/header_gradient"
+              android:orientation="horizontal"
+              android:paddingBottom="5dip"
+              android:paddingTop="5dip" >
+
+                  <!-- Logo Start-->
+
+                  <ImageView
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:layout_marginLeft="10dip"
+                      android:src="@drawable/lightlogo" />
+
+                  <!-- Logo Ends -->
+          </LinearLayout>
+          <!--  Header Ends -->
+          <!-- Footer Start -->
+          <LinearLayout android:id="@+id/footer"
+                  android:layout_width="fill_parent"
+                  android:layout_height="90dip"
+                  android:background="@layout/footer_repeat"
+                  android:layout_alignParentBottom="true">
+          </LinearLayout>
+          <!-- Footer Ends -->
+  <!-- Registration Form -->
+        <LinearLayout
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="10dip"
+          android:layout_below="@id/header">
+          <!-- Full Name Label -->
+          
+          <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textColor="#0b84aa"
+                  android:text="Nick Name"/>
+          
+          <EditText android:id="@+id/signupname"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="5dip"
+                  android:singleLine="true"
+                  android:layout_marginBottom="20dip"/>
+          <!--  Email Label -->
+          
+          <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textColor="#0b84aa"
+                  android:text="Email"/>
+          
+          <EditText android:id="@+id/signupusername"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="5dip"
+                  android:singleLine="true"
+                  android:layout_marginBottom="20dip"/>
+          <!-- Password Label -->
+          
+          <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textColor="#0b84aa"
+                  android:text="Password"/>
+          
+          <EditText android:id="@+id/signuppassword"
+                android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:password="true"
+                  android:singleLine="true"
+                  android:layout_marginTop="5dip"/>
+          
+          <!-- Register Button -->
+          <Button android:id="@+id/signuppagebutton"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="10dip"
+                  android:text="Register New Account"
+                  android:onClick="createaccount"/>
+          
+ 
+        </LinearLayout>
+          <!-- Registration Form Ends -->
+  </RelativeLayout>
+</ScrollView>
+          

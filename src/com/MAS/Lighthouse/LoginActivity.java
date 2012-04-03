@@ -27,12 +27,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends Activity implements View.OnTouchListener
 {
 	private	Button loginpageloginbutton;
-	private Button loginpagesignupbutton;
+	private TextView loginpagesignupbutton;
 	private EditText username;
 	private EditText password;
 	
@@ -54,7 +55,18 @@ public class LoginActivity extends Activity implements View.OnTouchListener
         
         
         loginpageloginbutton=(Button)findViewById(R.id.loginpageloginbutton);
-        loginpagesignupbutton=(Button)findViewById(R.id.loginpagesignupbutton);
+        loginpagesignupbutton=(TextView)findViewById(R.id.link_to_register);
+        
+        loginpagesignupbutton.setOnClickListener(new View.OnClickListener() {
+        	 
+            public void onClick(View v) {
+                // Switching to Register screen
+            	Intent i= new Intent(getApplicationContext(),SignUpActivity.class);
+            	startActivity(i);
+            }
+        });
+        
+        
         
         
         username=(EditText)findViewById(R.id.loginpageusername);

@@ -22,23 +22,25 @@ public final class R {
         public static final int ic_launcher=0x7f020005;
         public static final int icon=0x7f020006;
         public static final int image_bg=0x7f020007;
-        public static final int list_selector=0x7f020008;
-        public static final int logo=0x7f020009;
-        public static final int no_image=0x7f02000a;
-        public static final int play=0x7f02000b;
-        public static final int rihanna=0x7f02000c;
-        public static final int youtubeimage=0x7f02000d;
+        public static final int lightlogo=0x7f020008;
+        public static final int list_selector=0x7f020009;
+        public static final int logo=0x7f02000a;
+        public static final int no_image=0x7f02000b;
+        public static final int play=0x7f02000c;
+        public static final int repeat_bg=0x7f02000d;
+        public static final int rihanna=0x7f02000e;
+        public static final int youtubeimage=0x7f02000f;
     }
     public static final class id {
-        public static final int haventsignedupyet=0x7f06000a;
-        public static final int header=0x7f06000b;
+        public static final int footer=0x7f060007;
+        public static final int header=0x7f060005;
         public static final int leftbuffer=0x7f060010;
+        public static final int link_to_register=0x7f06000b;
         public static final int list_image=0x7f060001;
-        public static final int loginpageimage=0x7f060005;
-        public static final int loginpageloginbutton=0x7f060008;
-        public static final int loginpagepassword=0x7f060007;
-        public static final int loginpagesignupbutton=0x7f060009;
-        public static final int loginpageusername=0x7f060006;
+        public static final int loginpageimage=0x7f060006;
+        public static final int loginpageloginbutton=0x7f06000a;
+        public static final int loginpagepassword=0x7f060009;
+        public static final int loginpageusername=0x7f060008;
         public static final int lowerbuffer=0x7f060013;
         public static final int messageText_label=0x7f060002;
         public static final int message_text=0x7f060015;
@@ -48,32 +50,31 @@ public final class R {
         public static final int retrieve_location_button=0x7f06000d;
         public static final int retrieve_settings_button=0x7f06000e;
         public static final int rightbuffer=0x7f060012;
-        public static final int signupconfirmpassword=0x7f06001c;
-        public static final int signupimage=0x7f060018;
-        public static final int signupname=0x7f060019;
-        public static final int signuppagebutton=0x7f06001d;
-        public static final int signuppassword=0x7f06001b;
-        public static final int signupscroll=0x7f060017;
-        public static final int signupusername=0x7f06001a;
+        public static final int signupname=0x7f060017;
+        public static final int signuppagebutton=0x7f06001a;
+        public static final int signuppassword=0x7f060019;
+        public static final int signupusername=0x7f060018;
         public static final int submit_button=0x7f060016;
         public static final int thumbnail=0x7f060000;
         public static final int timestamp_label=0x7f060004;
         public static final int upperbuffer=0x7f06000f;
         public static final int video_button=0x7f060014;
-        public static final int youtubeimage=0x7f06001e;
-        public static final int youtubepassword=0x7f060020;
-        public static final int youtubesubmitbutton=0x7f060021;
-        public static final int youtubeusername=0x7f06001f;
+        public static final int youtubeimage=0x7f06001b;
+        public static final int youtubepassword=0x7f06001d;
+        public static final int youtubesubmitbutton=0x7f06001e;
+        public static final int youtubeusername=0x7f06001c;
     }
     public static final class layout {
         public static final int displaylist_item=0x7f030000;
         public static final int displaylist_item_import=0x7f030001;
         public static final int displaymessagelayout=0x7f030002;
-        public static final int loginlayout=0x7f030003;
-        public static final int main=0x7f030004;
-        public static final int postlayout=0x7f030005;
-        public static final int signuplayout=0x7f030006;
-        public static final int youtubeloginlayout=0x7f030007;
+        public static final int footer_repeat=0x7f030003;
+        public static final int header_gradient=0x7f030004;
+        public static final int loginlayout=0x7f030005;
+        public static final int main=0x7f030006;
+        public static final int postlayout=0x7f030007;
+        public static final int signuplayout=0x7f030008;
+        public static final int youtubeloginlayout=0x7f030009;
     }
     public static final class string {
         public static final int Accountpassword=0x7f050008;
