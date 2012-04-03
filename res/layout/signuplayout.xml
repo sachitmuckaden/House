@@ -13,7 +13,7 @@
           <LinearLayout
               android:id="@+id/header"
               android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="50dp"
               android:background="@layout/header_gradient"
               android:orientation="horizontal"
               android:paddingBottom="5dip"
@@ -31,12 +31,6 @@
           </LinearLayout>
           <!--  Header Ends -->
           <!-- Footer Start -->
-          <LinearLayout android:id="@+id/footer"
-                  android:layout_width="fill_parent"
-                  android:layout_height="90dip"
-                  android:background="@layout/footer_repeat"
-                  android:layout_alignParentBottom="true">
-          </LinearLayout>
           <!-- Footer Ends -->
   <!-- Registration Form -->
         <LinearLayout
