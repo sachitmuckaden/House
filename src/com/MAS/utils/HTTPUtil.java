@@ -142,8 +142,8 @@ public class HTTPUtil{
 		            httpPost.setParams(params);
 		            
 		            HttpResponse httpResponse = httpClient.execute(httpPost);
-		            HttpParams httpParams = httpResponse.getParams();
-		            Location = (String) httpParams.getParameter("Location");
+		            HttpEntity httpEntity = httpResponse.getEntity();
+		            is = httpEntity.getContent();
 		            	 
 		        } catch (UnsupportedEncodingException e) {
 		            e.printStackTrace();
@@ -153,7 +153,7 @@ public class HTTPUtil{
 		            e.printStackTrace();
 		        }
 			    
-			    /*try {
+			    try {
 		            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
 		            StringBuilder sb = new StringBuilder();
 		            String line = null;
@@ -169,25 +169,15 @@ public class HTTPUtil{
 			    
 		        // try parse the string to a JSON object
 		        try {
-		            if(method.equals(Values.YOUTUBE_AUTH))
-		            {
-		            	jObj = parseString(json);
-		            }
-		            else
-		            {
+		            
 		            	jObj = new JSONObject(json);
-		            }
+		            
 		        } catch (JSONException e) {
 		            Log.e("JSON Parser", "Error parsing data " + e.toString());
-		        }*/
+		        }
 		 
 		        // return JSON String
-		        try {
-					jObj.put("Location", Location);
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		        
 			    return jObj;
 		 
 		   }
