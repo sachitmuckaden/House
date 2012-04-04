@@ -21,14 +21,14 @@ public class GoogleLibraryHelper{
 		Log.d("Entered the GoogleLib Class","Check");
 	HttpRequestFactory requestFactory = new NetHttpTransport().createRequestFactory();
 	
-	InputStreamContent content = new InputStreamContent(null, null);
+	//InputStreamContent content = new InputStreamContent(null, null);
 	//content.inputStream = null;
 	
-	  	HttpRequest request = requestFactory.buildPostRequest(new GenericUrl(Values.YOUTUBE_URL), content);
+	  	HttpRequest request = requestFactory.buildPostRequest(new GenericUrl(Values.YOUTUBE_URL), null);
 		
 		
 		GoogleHeaders headers = new GoogleHeaders();
-		headers.setGoogleLogin(authToken);
+		//headers.setGoogleLogin(authToken);
 		headers.setContentLength("0");
 		headers.setGDataKey("key = " +Values.YOUTUBE_DEVELOPER_CODE);
 		headers.setGDataVersion("2");

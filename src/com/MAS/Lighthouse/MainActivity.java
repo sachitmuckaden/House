@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
@@ -22,7 +23,28 @@ public class MainActivity extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-         
+        ImageView post = (ImageView)findViewById(R.id.Post);
+        post.setOnClickListener(new OnClickListener() {
+        public void onClick(View v) {
+         // TODO Auto-generated method stub
+        	postActivity(v);
+       }
+       });
+        ImageView scan = (ImageView)findViewById(R.id.Scan);
+        scan.setOnClickListener(new OnClickListener() {
+        public void onClick(View v) {
+         // TODO Auto-generated method stub
+        	scanActivity(v);
+       }
+       }); 
+        ImageView settings = (ImageView)findViewById(R.id.Settings);
+        settings.setOnClickListener(new OnClickListener() {
+        public void onClick(View v) {
+         // TODO Auto-generated method stub
+        	scanActivity(v);
+       }
+       }); 
+        
 }
        
 	public void scanActivity(View view){

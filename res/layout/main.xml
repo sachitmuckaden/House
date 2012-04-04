@@ -1,37 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:orientation="vertical"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    >
-<TextView
-		android:id="@+id/header"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:text="LightHouse"
-		android:gravity="center"
-		android:textSize="20dp"
-		android:textStyle="normal"
-/>
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/repeat_bg"
 
-	<Button
-	    android:id="@+id/retrieve_alarms_button"
-	    android:layout_width="89dp"
-	    android:layout_height="wrap_content"
-	    android:onClick="scanActivity"
-	    android:text="Scan" />
+    >
+    
+<TableLayout
+    android:layout_width="fill_parent"
+    android:layout_height="365dp"
+    android:stretchColumns="1" >
 
-	<Button
-	    android:id="@+id/retrieve_location_button"
-	    android:layout_width="87dp"
-	    android:layout_height="wrap_content"
-	    android:onClick="postActivity"
-	    android:text="Post" />
+    <TableRow>
 
-	<Button
-	    android:id="@+id/retrieve_settings_button"
-	    android:layout_width="88dp"
-	    android:layout_height="wrap_content"
-	    android:text="Settings" />
+        <ImageView
+            android:id="@+id/Post"
+            android:layout_width="100sp"
+            android:layout_height="150sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="20sp"
+            android:cropToPadding="false"
+            android:paddingLeft="10dp"
+            android:src="@drawable/post" />
+
+        <ImageView
+            android:id="@+id/Scan"
+            android:layout_width="100sp"
+            android:layout_height="150sp"
+            android:layout_marginLeft="100sp"
+             android:layout_marginRight="30sp"
+            android:layout_marginTop="20sp"
+            android:cropToPadding="false"
+            android:paddingLeft="10dp"
+            android:src="@drawable/scan" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/PostText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50sp"
+            android:layout_marginTop="20sp"
+            android:text="POST"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/ScanText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="SCAN"
+            android:layout_marginLeft="150sp"
+            android:layout_marginTop="20sp"
+            android:textColor="#ffffff" />
+    </TableRow>
+<TableRow ></TableRow>
+    <ImageView
+        android:id="@+id/Settings"
+        android:layout_width="100sp"
+        android:layout_height="120sp"
+        android:layout_marginTop="20sp"
+        android:layout_weight="0.04"
+        android:cropToPadding="false"
+        android:paddingLeft="10dp"
+        android:src="@drawable/settings" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="SETTINGS"
+        android:textColor="#ffffff" />
+</TableLayout>
 
 </LinearLayout>
