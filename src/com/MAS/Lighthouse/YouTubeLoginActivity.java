@@ -19,6 +19,7 @@ import org.apache.http.params.HttpParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.MAS.helpers.GoogleLibraryHelper;
 import com.MAS.helpers.Values;
 import com.MAS.helpers.YouTubeAuthHelper;
 import com.MAS.helpers.YouTubeHelper;
@@ -129,28 +130,15 @@ public class YouTubeLoginActivity extends Activity{
 	}
 	private String sendYouTubeRequest(String AuthToken)
 	{
-		YouTubeHelper youtube = new YouTubeHelper();
-		HttpParams params = youtube.createMessage(this.getApplicationContext(), AuthToken, videofilename);
-		HTTPUtil http = new HTTPUtil();
-		JSONObject response = null;
+		GoogleLibraryHelper googlelib = new GoogleLibraryHelper();
+		String uploadurl="";
 		try {
-			response = http.Execute(params, Values.YOUTUBE_URL);
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			uploadurl = googlelib.getUploadUrl(AuthToken, videofilename);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String uploadurl = "";
-		try {
-			uploadurl = response.getString("Location");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String messageText="";
-		messageText = sendVideo(uploadurl);
+		String messageText = sendVideo(uploadurl);
 		return messageText;
 	}
 	
