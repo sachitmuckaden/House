@@ -22,9 +22,12 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,13 +37,14 @@ import com.MAS.helpers.Values;
 import com.MAS.utils.HTTPUtil;
 
 
-public class PostMessageActivity extends Activity implements OnClickListener{
+public class PostMessageActivity extends Activity implements OnClickListener, OnTouchListener{
     /** Called when the activity is first created. */
 	
 	public final int ACTION_TAKE_VIDEO = 1;
 	public final int ACTION_YOUTUBE_LOGIN = 2;
 	File f= null;
 	String filename= null;
+	TextView txt;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +52,20 @@ public class PostMessageActivity extends Activity implements OnClickListener{
         
         Intent sender=getIntent();
         String extraData=sender.getExtras().getString(Values.COMING_FROM);
-        if(extraData.equals(Values.COMING_FROM_YOUTUBE))
+        
+        Typeface font = Typeface.createFromAsset(getAssets(),"Action_Man_Bold.ttf");
+        Typeface editfont = Typeface.createFromAsset(getAssets(),"rabiohead.ttf");
+    	TextView txt_img_capture = (TextView) findViewById(R.id.image_capture ); 
+    	TextView txt_sound_capture = (TextView) findViewById(R.id.sound_capture ); 
+    	TextView txt_video_capture =  (TextView) findViewById(R.id.video_capture ); 
+    	txt = (TextView) findViewById(R.id.message_text );
+    		  
+    	txt.setTypeface(editfont);
+    	txt_img_capture.setTypeface(font);
+    	txt_sound_capture.setTypeface(font);
+    	txt_video_capture.setTypeface(font);
+    	txt.setOnTouchListener(this);
+       if(extraData.equals(Values.COMING_FROM_YOUTUBE))
         {
         	String editText = sender.getExtras().getString("message");
         	EditText textbox = (EditText)findViewById(R.id.message_text);
@@ -62,6 +79,15 @@ public class PostMessageActivity extends Activity implements OnClickListener{
     {
     	EditText editText = (EditText)findViewById(R.id.message_text);
     	String editTextStr = editText.getText().toString();
+    	
+    	TextView t=new TextView(this); 
+    	t=(TextView)findViewById(R.id.posted_message);
+    
+    	t.setVisibility(View.VISIBLE);
+		t.setText(editTextStr);
+    	TextView p = new TextView(this);
+    	p = (TextView)findViewById(R.id.message_text);
+    		p.setText("");
     	
     	MessageHelper message = new MessageHelper();
     	List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -102,14 +128,7 @@ public class PostMessageActivity extends Activity implements OnClickListener{
 			e.printStackTrace();
 		}
     	
-    	TextView t=new TextView(this); 
-    	t=(TextView)findViewById(R.id.posted_message);
-    
-    	t.setBackgroundResource(R.color.black);    
-    	t.setText(messageText+ "\n" + "                  " + timestamp);
-    	TextView p = new TextView(this);
-    	p = (TextView)findViewById(R.id.message_text);
-    		p.setText("");
+    	
     	Log.d(null, response.toString());
     	
     	
@@ -167,5 +186,16 @@ public class PostMessageActivity extends Activity implements OnClickListener{
        
         return image;
     }
+	public boolean onTouch(View v, MotionEvent event) {
+		EditText focusEditText=(EditText)v;
+		String contents=focusEditText.getText().toString();
+		if(contents.equals("Message away ...!!"))
+		{
+			
+			focusEditText.setText("");
+			return false;
+		}
+		return false;
+	}
     
 }

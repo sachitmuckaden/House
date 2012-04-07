@@ -30,7 +30,7 @@ public class GoogleLibraryHelper{
 		GoogleHeaders headers = new GoogleHeaders();
 		//headers.setGoogleLogin(authToken);
 		headers.setContentLength("0");
-		headers.setGDataKey("key = " +Values.YOUTUBE_DEVELOPER_CODE);
+		headers.setGDataKey("key =" +Values.YOUTUBE_DEVELOPER_CODE);
 		headers.setGDataVersion("2");
 		headers.setAuthorization("GoogleLogin auth=" + authToken);
 		headers.setSlugFromFileName(videofilename);

@@ -21,7 +21,7 @@
             android:layout_marginTop="20sp"
             android:cropToPadding="false"
             android:paddingLeft="10dp"
-            android:src="@drawable/post" />
+            android:src="@drawable/text_bubble" />
 
         <ImageView
             android:id="@+id/Scan"
@@ -32,7 +32,7 @@
             android:layout_marginTop="20sp"
             android:cropToPadding="false"
             android:paddingLeft="10dp"
-            android:src="@drawable/scan" />
+            android:src="@drawable/scanradar" />
     </TableRow>
 
     <TableRow>
@@ -64,7 +64,7 @@
         android:layout_weight="0.04"
         android:cropToPadding="false"
         android:paddingLeft="10dp"
-        android:src="@drawable/settings" />
+        android:src="@drawable/settings_new" />
 
     <TextView
         android:layout_width="fill_parent"

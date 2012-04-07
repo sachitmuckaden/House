@@ -3,6 +3,8 @@ package com.MAS.Lighthouse;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,17 @@ import com.MAS.helpers.YouTubeAuthHelper;
 import com.MAS.helpers.YouTubeHelper;
 import com.MAS.utils.HTTPUtil;
 import com.MAS.utils.HTTPPutUtil;
+import com.google.gdata.client.youtube.YouTubeService;
+import com.google.gdata.data.media.MediaFileSource;
+import com.google.gdata.data.media.mediarss.MediaCategory;
+import com.google.gdata.data.media.mediarss.MediaDescription;
+import com.google.gdata.data.media.mediarss.MediaKeywords;
+import com.google.gdata.data.media.mediarss.MediaTitle;
+import com.google.gdata.data.youtube.VideoEntry;
+import com.google.gdata.data.youtube.YouTubeMediaGroup;
+import com.google.gdata.data.youtube.YouTubeNamespace;
+import com.google.gdata.util.AuthenticationException;
+import com.google.gdata.util.ServiceException;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -32,13 +45,18 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.widget.EditText;
 
-public class YouTubeLoginActivity extends Activity{
+public class YouTubeLoginActivity extends Activity implements OnTouchListener{
 	File videofile = null;
 	String videofilename = null;
+	EditText usernameedt;
+	EditText passwordedt;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,16 +68,21 @@ public class YouTubeLoginActivity extends Activity{
         	videofilename = (String) extras.getString("filename");
         }
 
+        usernameedt = (EditText)findViewById(R.id.youtubeusername);
+        passwordedt = (EditText)findViewById(R.id.youtubepassword);
+        
+        usernameedt.setOnTouchListener(this);
+        passwordedt.setOnTouchListener(this);
         
 	}
 	
-	public void getAuthToken(View view)
+	public void getAuthToken(View view) throws MalformedURLException, IOException, ServiceException
 	{
-		String AuthToken = "";
-		EditText usernameedt = (EditText)findViewById(R.id.youtubeusername);
+		//String AuthToken = "";
+			
     	String username = usernameedt.getText().toString();
 		
-    	EditText passwordedt = (EditText)findViewById(R.id.youtubepassword);
+    	
     	String password = passwordedt.getText().toString();
     	
     	if(username==null||password==null)
@@ -68,7 +91,7 @@ public class YouTubeLoginActivity extends Activity{
     		
     	}
     	
-    	YouTubeAuthHelper youtubeauth = new YouTubeAuthHelper();
+    	/*YouTubeAuthHelper youtubeauth = new YouTubeAuthHelper();
     	List<NameValuePair> params = youtubeauth.createMessage(this.getApplicationContext(), username, password);
 		HTTPUtil http = new HTTPUtil();
 		
@@ -103,10 +126,43 @@ public class YouTubeLoginActivity extends Activity{
 		{
 			AuthToken = "";
 		}
-		String messageText = sendYouTubeRequest(AuthToken);
+		String messageText = sendYouTubeRequest(AuthToken);*/
+		
+		YouTubeService service = new YouTubeService("LightHouse", Values.YOUTUBE_DEVELOPER_CODE);
+		service.setUserCredentials(username, password);
+		VideoEntry newEntry = new VideoEntry();
+
+		YouTubeMediaGroup mg = newEntry.getOrCreateMediaGroup();
+		mg.setTitle(new MediaTitle());
+		mg.getTitle().setPlainTextContent("My First Video");
+		mg.addCategory(new MediaCategory(YouTubeNamespace.CATEGORY_SCHEME, "Autos"));
+		mg.setKeywords(new MediaKeywords());
+		mg.getKeywords().addKeyword("lighthouse");
+		mg.getKeywords().addKeyword("live");
+		mg.setDescription(new MediaDescription());
+		mg.getDescription().setPlainTextContent("Video from LightHouse app");
+		mg.setPrivate(false);
+		mg.addCategory(new MediaCategory(YouTubeNamespace.DEVELOPER_TAG_SCHEME, "mydevtag"));
+		mg.addCategory(new MediaCategory(YouTubeNamespace.DEVELOPER_TAG_SCHEME, "anotherdevtag"));
+
+		//newEntry.setGeoCoordinates(new GeoRssWhere(37.0,-122.0));
+		// alternatively, one could specify just a descriptive string
+		newEntry.setLocation("Atlanta, GA");
+
+		MediaFileSource ms = new MediaFileSource(videofile, "video/mp4");
+		newEntry.setMediaSource(ms);
+
+		String uploadUrl =
+		  "http://uploads.gdata.youtube.com/feeds/api/users/default/uploads";
+
+		VideoEntry createdEntry = service.insert(new URL(uploadUrl), newEntry);
+		String videoURL = createdEntry.getHtmlLink().toString();
+		
+		Log.d("videoURL", videoURL);
+		
 		Intent j  = new Intent();
 		j.putExtra(Values.COMING_FROM, Values.COMING_FROM_YOUTUBE);
-		j.putExtra("message", messageText);
+		j.putExtra("message", videoURL);
 		startActivity(j);
 		finish();
 		
@@ -181,6 +237,26 @@ public class YouTubeLoginActivity extends Activity{
 		String code = uploadurl.substring(uploadurl.lastIndexOf('/')+1);
 		actualurl = actualurl + code;
 		return actualurl;
+	}
+	
+	public boolean onTouch(View v, MotionEvent event) 
+	{
+		EditText focusEditText=(EditText)v;
+		Log.d("On Touch Listener", "true");
+		String contents=focusEditText.getText().toString();
+		if(contents.equals("YouTube Username"))
+		{
+			
+			focusEditText.setText("");
+			return false;
+		}
+		if(contents.equals("YouTube Password"))
+		{
+			focusEditText.setText("");
+			focusEditText.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+			return false;
+		}
+		return false;
 	}
 	
 }
