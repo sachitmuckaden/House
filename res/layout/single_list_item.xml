@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+   android:background ="@drawable/lighthouse_img" 
+    >
+    
+    
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_below="@+id/toptab"
+    >
+    
+    <TextView
+        android:id="@+id/posted_message"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="10dp"
+        android:visibility="visible"
+        android:layout_margin="15dp"
+        android:maxLines="10"
+        android:text=""
+        android:background="@drawable/edge"
+        android:textColor="#008000"	
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    
+    </LinearLayout>
+    
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:orientation="horizontal"
+    android:layout_alignParentTop="true"
+    android:gravity="center_horizontal"
+    
+    android:id="@+id/toptab"
+    > 
+    
+    <!--  
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        
+        >
+    	<Button 
+        	android:id = "@+id/video_button_1"
+        	android:layout_width="match_parent"
+        	android:layout_height="90dp"
+        	android:background="@drawable/camera"
+        	android:onClick="startVideo" 
+        	
+        	
+        	 />
+    	<TextView  
+    	    android:layout_width="match_parent"
+    	    android:layout_height="20dp"
+    	    android:id = "@+id/sound_capture"
+    	    
+        	android:text=""
+        	android:textColor="#00FF00"
+        	android:textStyle="bold"
+        	android:gravity="center_vertical|center_horizontal"
+        	/>
+        	
+        	
+          </LinearLayout>
+    -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        
+        >
+    
+    <Button
+        android:id = "@+id/video_button_2"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/camera"
+        android:onClick="startVideo" /> 
+       
+
+
+   <TextView  
+    	    android:layout_width="match_parent"
+    	    android:id = "@+id/image_capture"
+    	    android:layout_height="20dp"
+    	    android:layout_alignParentBottom="true"
+        	android:text=""
+        	android:textColor="#00FF00"
+        	android:gravity="center_vertical|center_horizontal"
+        	
+        	android:textStyle="bold" />
+
+    </LinearLayout>
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        >
+
+
+
+        <Button
+            android:id="@+id/video_button"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@drawable/movies"
+            android:onClick="startVideo" />
+ 
+      <TextView  
+    	    android:layout_width="match_parent"
+    	    android:layout_height="20dp"
+    	     android:id = "@+id/video_capture"
+    	    android:layout_alignParentBottom="true"
+        	android:text=""
+        	android:textColor="#00FF00"
+        	android:gravity="center_vertical|center_horizontal"
+        	android:typeface="sans"
+        	android:textStyle="bold" />
+
+        
+    </LinearLayout>
+    
+ </LinearLayout>
+    
+    
+    
+
+   
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="90dp"
+    android:layout_height="90dp"
+    android:orientation="horizontal"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:gravity="center_horizontal|center_vertical"
+    
+    android:layout_margin="5dp"
+    >
+
+       <Button
+           android:id="@+id/submit_button"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:background="@drawable/thumbs_up" 
+           
+           />
+
+
+    </LinearLayout>
+
+</RelativeLayout>     
+
+

@@ -56,13 +56,13 @@ public class PostMessageActivity extends Activity implements OnClickListener, On
         Typeface font = Typeface.createFromAsset(getAssets(),"Action_Man_Bold.ttf");
         Typeface editfont = Typeface.createFromAsset(getAssets(),"rabiohead.ttf");
     	TextView txt_img_capture = (TextView) findViewById(R.id.image_capture ); 
-    	TextView txt_sound_capture = (TextView) findViewById(R.id.sound_capture ); 
+    	//TextView txt_sound_capture = (TextView) findViewById(R.id.sound_capture ); 
     	TextView txt_video_capture =  (TextView) findViewById(R.id.video_capture ); 
     	txt = (TextView) findViewById(R.id.message_text );
     		  
     	txt.setTypeface(editfont);
     	txt_img_capture.setTypeface(font);
-    	txt_sound_capture.setTypeface(font);
+    	//txt_sound_capture.setTypeface(font);
     	txt_video_capture.setTypeface(font);
     	txt.setOnTouchListener(this);
        if(extraData.equals(Values.COMING_FROM_YOUTUBE))

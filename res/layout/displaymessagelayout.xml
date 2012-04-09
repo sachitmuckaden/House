@@ -6,6 +6,29 @@
 	<!-- Main ListView 
 		 Always give id value as list(@android:id/list)
 	-->
+
+	<LinearLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="35dp"
+	    android:gravity="center_horizontal|center_vertical"
+	    android:orientation="horizontal" 
+	    android:layout_margin="5dp"
+	    android:padding="5dp">
+
+	    <EditText
+	        android:layout_width="252dp"
+	        android:layout_height="35dp"
+	        android:layout_weight="0.31"
+	        android:background="@drawable/edge"
+	        android:text="Search Posts" />
+
+	    <Button
+	        android:layout_width="25dp"
+	        android:layout_height="25dp"
+	        android:background="@drawable/find" />
+	</LinearLayout>
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"

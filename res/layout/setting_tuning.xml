@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+   android:background ="@drawable/lighthouse_img" 
+    >
+
+    
+<SeekBar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/radius"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:layout_height="15dp" 
+    android:layout_centerInParent="true">
+    
+
+</SeekBar>
+<TextView 
+    android:layout_width="match_parent"
+    android:layout_height="15dp"
+    android:layout_margin="10dp"
+    android:text="RADIUS"
+    android:layout_above="@+id/radius"
+    android:gravity="center_horizontal|center_vertical"
+    />
+</RelativeLayout>

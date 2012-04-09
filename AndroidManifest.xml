@@ -38,6 +38,10 @@
             android:name=".YouTubeLoginActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".SingleListItemActivity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
   
     

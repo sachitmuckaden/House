@@ -19,6 +19,7 @@ import com.MAS.utils.HTTPUtil;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -101,32 +102,44 @@ public class DisplayMessageActivity extends ListActivity
 		                R.id.messageText_label, R.id.nickname_label, R.id.timestamp_label });
 		
 		setListAdapter(adapter);
-		/*
+		
+		/*ListView lv = getListView();
+		
+		lv.setOnItemClickListener(new OnItemClickListener(){
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+				String product = ((TextView)view.findViewById(R.id)).getText().toString();
+				
+				Log.d("product", product);
+			}
+		});
+			*/
+		
+		
 		// selecting single ListView item
 		ListView lv = getListView();
 		
 		// Launching new screen on Selecting Single ListItem
 		lv.setOnItemClickListener(new OnItemClickListener() {
 		
-		    @Override
+		    
 		    public void onItemClick(AdapterView<?> parent, View view,
 		            int position, long id) {
 		        // getting values from selected ListItem
-		        String name = ((TextView) view.findViewById(R.id.)).getText().toString();
-		        String cost = ((TextView) view.findViewById(R.id.email)).getText().toString();
-		        String description = ((TextView) view.findViewById(R.id.mobile)).getText().toString();
+		        String messageText = ((TextView) view.findViewById(R.id.messageText_label)).getText().toString();
+		        String nickname = ((TextView) view.findViewById(R.id.nickname_label)).getText().toString();
+		        //String description = ((TextView) view.findViewById(R.id.timestamp_label)).getText().toString();
 		
 		        // Starting new intent
-		        Intent in = new Intent(getApplicationContext(), SingleMenuItemActivity.class);
-		        in.putExtra(TAG_NAME, name);
-		        in.putExtra(TAG_EMAIL, cost);
-		        in.putExtra(TAG_PHONE_MOBILE, description);
+		        Intent in = new Intent(getApplicationContext(), SingleListItemActivity.class);
+		        in.putExtra("messageText", messageText);
+		        in.putExtra("nickname", nickname);
+		        //in.putExtra(TAG_PHONE_MOBILE, description);
 		        startActivity(in);
 		    }
 
 			
 				
 			
-		});*/
+		});
 }
 }

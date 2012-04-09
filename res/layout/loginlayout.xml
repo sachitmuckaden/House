@@ -9,25 +9,29 @@
           android:layout_height="wrap_content"
           android:background="@drawable/repeat_bg">
  
-          <!--  Header Starts-->
-
-          <LinearLayout
+         <LinearLayout
               android:id="@+id/header"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:background="@layout/header_gradient"
               android:paddingBottom="5dip"
-              android:paddingTop="5dip" >
+              android:paddingTop="5dip"
+              android:layout_gravity="left"
+              android:orientation="horizontal"
+              
+               >
 
               <!-- Logo Start -->
 
               <ImageView
-                  android:src="@drawable/lightlogo"
-                  android:layout_width="wrap_content"
-          		  android:layout_height="50dip"
-                  android:layout_marginLeft="10dip">
+                  android:layout_width="69dp"
+                  android:layout_height="50dip"
+                  android:layout_marginLeft="10dip"
+                  android:src="@drawable/lightlogo" >
                    
               </ImageView>
+
+             
               
               <!-- Logo Ends -->
 
