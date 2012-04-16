@@ -27,5 +27,8 @@ public class Values
 	public static final String COMING_FROM = "Coming From";
 	public static final String COMING_FROM_YOUTUBE = "youtube";
 	public static final String COMING_FROM_MAIN = "main";
+	public static final String LIKES = "likes";
+	public static final String LIKE_URL = "like";
+	public static final String GETMESSAGESBYTAG_URL = "search";
 
 }

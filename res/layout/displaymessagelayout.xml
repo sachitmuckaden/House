@@ -17,6 +17,7 @@
 	    android:padding="5dp">
 
 	    <EditText
+	        android:id="@+id/search_item"
 	        android:layout_width="252dp"
 	        android:layout_height="35dp"
 	        android:layout_weight="0.31"
@@ -24,9 +25,11 @@
 	        android:text="Search Posts" />
 
 	    <Button
+	        android:id="@+id/search"
 	        android:layout_width="25dp"
 	        android:layout_height="25dp"
-	        android:background="@drawable/find" />
+	        android:background="@drawable/find"
+	        android:onClick="search" />
 	</LinearLayout>
 
     <ListView

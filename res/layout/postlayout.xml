@@ -140,16 +140,35 @@
     android:layout_margin="5dp"
     >
     
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="90dp"
+    android:orientation="vertical"
+    android:layout_alignParentBottom="true"
+    >
         <EditText
             android:id="@+id/message_text"
             android:layout_width="250dp"
-            android:layout_height="70dp" 
+            android:layout_height="45dp" 
             android:background="@drawable/edge"
          	android:text="Message away ...!!"
          	android:textSize="25dp"
+         	android:inputType="text|textAutoCorrect|textCapSentences"
+         	android:layout_marginBottom="15dp"
             />
 
+        <EditText
+            android:id="@+id/tag_text"
+            android:layout_width="250dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edge"
+            android:inputType="text|textAutoCorrect"
+            android:textSize="20dp" >
 
+            <requestFocus />
+        </EditText>
+        
+	</LinearLayout>
         <Button
             android:id="@+id/submit_button"
             android:layout_width="match_parent"

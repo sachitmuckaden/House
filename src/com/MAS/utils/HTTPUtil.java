@@ -57,6 +57,14 @@ public class HTTPUtil{
 			{
 				url = Values.YOUTUBE_URL;
 			}
+			else if(method.equals(Values.LIKE_URL))
+			{
+				url = url + Values.LIKE_URL;
+			}
+			else if(method.equals(Values.GETMESSAGESBYTAG_URL))
+			{
+				url = url + Values.GETMESSAGESBYTAG_URL;
+			}
 			else
 			{
 				url = url + "write";

@@ -45,6 +45,7 @@ public class PostMessageActivity extends Activity implements OnClickListener, On
 	File f= null;
 	String filename= null;
 	TextView txt;
+	EditText tagtext;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +74,7 @@ public class PostMessageActivity extends Activity implements OnClickListener, On
         }
         //Set up click listeners for all buttons
         View submitButton = findViewById(R.id.submit_button);
+        tagtext = (EditText) findViewById(R.id.tag_text);
         submitButton.setOnClickListener(this);
     }
     public void onClick(View v)
@@ -80,6 +82,8 @@ public class PostMessageActivity extends Activity implements OnClickListener, On
     	EditText editText = (EditText)findViewById(R.id.message_text);
     	String editTextStr = editText.getText().toString();
     	
+    	String tag = tagtext.getText().toString();
+    	tagtext.setText(" ");
     	TextView t=new TextView(this); 
     	t=(TextView)findViewById(R.id.posted_message);
     
@@ -93,7 +97,7 @@ public class PostMessageActivity extends Activity implements OnClickListener, On
     	List<NameValuePair> params = new ArrayList<NameValuePair>();
     	
     	
-    	params = message.createMessage(this.getApplicationContext(), editTextStr);
+    	params = message.createMessage(this.getApplicationContext(), editTextStr, tag);
     	
     	HTTPUtil http = new HTTPUtil();
     	

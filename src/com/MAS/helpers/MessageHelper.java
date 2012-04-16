@@ -21,7 +21,7 @@ public class MessageHelper{
 	Context context;
 	
 	
-	public List<NameValuePair> createMessage(Context context, String message)
+	public List<NameValuePair> createMessage(Context context, String message, String tag)
 	{
 		this.context = context;
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -53,7 +53,7 @@ public class MessageHelper{
 		this.timestamp = timestamp.getTimeStamp();
 		params.add(new BasicNameValuePair("timestamp", this.timestamp.toString()));
 		
-		
+		params.add(new BasicNameValuePair("tag", tag));
 		return params;
 	}
 	
